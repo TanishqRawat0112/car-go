@@ -1,10 +1,12 @@
+import { CarProps } from "@/types";
+
 export async function fetchCars(){
     const headers = {
 		'x-rapidapi-key': '9f07982f0cmsh0f5bacec150f96cp13e214jsnd2e933d96849',
 		'x-rapidapi-host': 'cars-by-api-ninjas.p.rapidapi.com'
 	}
     
-    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla',{
+    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera',{
         headers : headers,
     });
     
@@ -37,3 +39,18 @@ export const convertToKilometerPerLitre = (city_mpg:number) => {
     const kilometersPerLiter = city_mpg * milesToKilometers / gallonsToLiters;
     return kilometersPerLiter.toFixed(2); // rounding to 2 decimal places
 }
+
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+    const url = new URL("https://cdn.imagin.studio/getimage");
+    const { make, model, year } = car;
+  
+    url.searchParams.append('customer', 'hrjavascript-mastery');
+    url.searchParams.append('make', make);
+    url.searchParams.append('modelFamily', model.split(" ")[0]);
+    url.searchParams.append('zoomType', 'fullscreen');
+    url.searchParams.append('modelYear', `${year}`);
+    // url.searchParams.append('zoomLevel', zoomLevel);
+    // url.searchParams.append('angle', `${angle}`);
+  
+    return `${url}`;
+  } 
