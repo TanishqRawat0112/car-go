@@ -17,7 +17,7 @@
 }
 
 .navbar_btn_hover{
-  @apply transition-all hover:bg-blue-700 hover:text-white;
+  @apply transition-all hover:bg-blue-600 hover:text-white;
 }
 
 .footer_link_hover{

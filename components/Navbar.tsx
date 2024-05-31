@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link"
 import Image from "next/image"
 
@@ -18,8 +19,9 @@ const Navbar = () => {
             </Link>
 
             <CustomButton 
-                title="Sign In"
+                title="GitHub"
                 btnType="button"
+                handleClick={()=>window.open('https://github.com/TanishqRawat0112/car-go','_blank')}
                 containerStyles="text-primary-blue rounded-full bg-white min-w-[130px] navbar_btn_hover"
             />
         </nav>
